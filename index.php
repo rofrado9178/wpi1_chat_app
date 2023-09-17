@@ -47,6 +47,7 @@
 
             session_start();
             $_SESSION["username"] = $username;
+            $_SESSION["id"] = $userData["id"];
             //Boolean switch type variable
             $_SESSION["logged_in"] = true;
 
@@ -76,7 +77,7 @@
     
         <h1>Welcome <?php print $_SESSION["username"]; ?></h1>
 
-       <form action="views/chat.php" method="post" id="msg-box">
+       <form action="views/chatBox.php?post" method="post" id="msg-box">
         <input type="text"  placeholder="Type your message" name="message">
         <input type="submit" value="Send">
        </form>
