@@ -5,13 +5,13 @@
     error_reporting(E_ALL);
 
     //load up the DB connection
-    require_once "db/db.php";
+    require_once "_includes/db.php";
 
 //// Setting up users
-    $user1 = "peter";
-    $passw1 = "pizza123";
-    $user2 = "mary";
-    $passw2 = "pasta123";
+    // $user1 = "peter";
+    // $passw1 = "pizza123";
+    // $user2 = "mary";
+    // $passw2 = "pasta123";
 
    // INSERT INTO `users` (`id`, `username`, `password`) VALUES (NULL, 'baba123', '$2y$10$RCrjMrpjADJCyqR0M0p3UugmpKdRxx6RFIVATV2YJRuCyrFfWd8nO');
 
@@ -22,8 +22,28 @@
         $username = trim(strip_tags($_POST["username"]));
         $password = trim(strip_tags($_POST["password"]));
 
+        $user = $db->real_escape_string($username);
+        $pass = $db->real_escape_string($password);
+        
+        //set db query
+        $query = "SELECT * FROM users WHERE username = '$user'";
+        $data = mysqli_query($db , $query);
+
+        if(mysqli_num_rows($data) == 0){
+            echo("<p>User Not Found </p>");
+            exit();
+        }
+
+        $userData = mysqli_fetch_assoc($data); 
+
+        // echo("<pre>");
+        // var_dump($userData);
+        // echo("</pre>");
+     
+            
+        
         //echo "Form data is OK";
-        if(($username === $user1 && $passw1 === $password) || ($username === $user2 && $passw2 === $password)) {
+        if(password_verify($pass, $userData["password"])) {
 
             session_start();
             $_SESSION["username"] = $username;
@@ -63,12 +83,12 @@
     <?php elseif($_SERVER['REQUEST_METHOD'] == "POST") : ?>
 
         <h2>oops, that didn't work... </h2>
-        <a href="./login.php">Try again.</a>
+        <a href="index.php">Try again.</a>
         
     <?php else : ?>
 
         <h1>Please log in first</h1>
-        <form action="./login.php" method="post">
+        <form action="index.php" method="post">
             <input type="text" name="username" placeholder="User name please" pattern=".{3,}" required>
             <input type="password" name="password" placeholder="Password please" pattern=".{3,}" required>
             <input type="submit" value="Log me in!">
