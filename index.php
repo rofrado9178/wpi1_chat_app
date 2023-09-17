@@ -76,7 +76,10 @@
     
         <h1>Welcome <?php print $_SESSION["username"]; ?></h1>
 
-        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis omnis ipsam eveniet quasi iure quidem incidunt deleniti aliquam, facilis iste, deserunt odio quod fuga ullam natus tenetur dolor magni facere.</p>
+       <form action="views/chat.php" method="post" id="msg-box">
+        <input type="text"  placeholder="Type your message" name="message">
+        <input type="submit" value="Send">
+       </form>
 
         <a href="logout.php">Log me out</a>
     
