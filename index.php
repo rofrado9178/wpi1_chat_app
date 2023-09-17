@@ -77,6 +77,8 @@
     
         <h1>Welcome <?php print $_SESSION["username"]; ?></h1>
 
+        <p id="messages">L O A D I N G</p>
+
        <form action="views/chatBox.php?post" method="post" id="msg-box">
         <input type="text"  placeholder="Type your message" name="message">
         <input type="submit" value="Send">
@@ -101,6 +103,6 @@
     <?php endif; ?>
 
     
-
+<script src="JS/main.js"></script>
 </body>
 </html>
