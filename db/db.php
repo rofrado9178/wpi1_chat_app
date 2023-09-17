@@ -19,7 +19,7 @@ $db->set_charset("utf8mb4");
 if($db->connect_error){
   die('Connection Error ('.$db->connect_errno.')'.$db->connect_error);
 }
-// echo "It Works";
+echo "It Works";
 
 
 ?>

@@ -70,7 +70,7 @@
         <h1>Please log in first</h1>
         <form action="./login.php" method="post">
             <input type="text" name="username" placeholder="User name please" pattern=".{3,}" required>
-            <input type="password" name="password" placeholder="Password please" pattern=".{8,}" required>
+            <input type="password" name="password" placeholder="Password please" pattern=".{3,}" required>
             <input type="submit" value="Log me in!">
         </form>
     
