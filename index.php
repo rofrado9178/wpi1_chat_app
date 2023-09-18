@@ -82,7 +82,7 @@
                         <h1>WPI1 CHAT</h1>
                         <img src="assets/smile.png" alt="" class="smile">
                     </div>
-                    <a href="logout.php">Log out</a>
+                    <a href="logout.php" class="logout">Log out</a>
                 </div>
             </div>
         </header>
@@ -122,15 +122,17 @@
         
     <?php else : ?>
 
-    <section>
+    <section  class="login">
         <div class="container">
-            <article class="chatbox">
+            <article class="login-form">
                 <h1>Please log in first</h1>
-                <form action="index.php" method="post" class="login-form">
+                <form action="index.php" method="post" class="credential" >
                     <input type="text" name="username" placeholder="User name please" pattern=".{3,}" required>
                     <input type="password" name="password" placeholder="Password please" pattern=".{3,}" required>
-                    <input type="submit" value="Log me in!">
+                    <input type="submit" value="Log me in!" class="login-btn">
                 </form> 
+                <p>username jacob - jacob123</p>
+                <p>username hello - hello123</p>
             </article>
         </div>
     </section>

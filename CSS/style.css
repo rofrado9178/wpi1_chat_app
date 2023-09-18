@@ -98,7 +98,7 @@ background-color: #d9d9d9;
 
 .send-btn{
   padding: 10px 20px;
-  background: url("../assets/paper-airplane.svg")#89c087;;
+  background: url("../assets/paper-airplane.svg")#89c087;
   background-position: center;
   background-size: cover;
   top: 10px;
@@ -106,5 +106,101 @@ background-color: #d9d9d9;
 
 .send-btn:hover{
   background-color: aquamarine;
+}
+
+.login{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form{
+  padding: 100px 0;
+  background-color:  #d1e1fa;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.login-form h1{
+  font-size: 30px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.login-form input{
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  padding: 15px;
+  width: 80%;
+}
+
+.login-btn{
+  background-color: #89c087;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.login-btn:hover{
+  background-color: aquamarine;
+}
+
+#messages{
+  padding: 10px;
+}
+
+span{
+  border: 2px solid black;
+  background-color: #89c087;
+  border-radius: 8px;
+  display: block;
+  padding: 15px 10px;
+  width: 60%;
+
+}
+
+.they{
+  background-color: #d9d9d9;
+  
+}
+
+.me{
+  position: relative;
+  left:130px;
+}
+
+
+.me i{
+  position: relative;
+  top: 40px;
+  left:80%;
+  font-size: 16px;
+}
+
+.they i{
+  position: relative;
+  top: 40px;
+  font-size: 16px;
+}
+
+.logout{
+  transition: 0.5s;
+}
+
+.logout:hover{
+color: white;
+}
+
+.logout-page{
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.logout-page h1{
+  margin-bottom: 20px;
 }
 

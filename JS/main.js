@@ -14,7 +14,8 @@ async function loadMessage() {
   myMessages.innerHTML = "";
 
   data.map((msg) => {
-    myMessages.innerHTML += `<span class="msg" data-id="${msg.id}">${msg.message} <br> <i>${msg.username}</i></span><br>`;
+    let chatClass = (msg.uid !== window.myUserId) ? "they" : "me"
+    myMessages.innerHTML += `<span class="msg ${chatClass} " data-id="${msg.id}">${msg.message} <br> <i>${msg.username}</i></span><br>`;
   });
   lastMsgId = data[data.length - 1].id;
 }
