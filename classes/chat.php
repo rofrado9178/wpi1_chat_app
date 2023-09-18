@@ -124,6 +124,7 @@ class Chat {
 
     require_once "../_includes/db.php";
 
+    $results = [];
     if($db){
   
       $query = "SELECT * FROM message WHERE message.id > ?;";

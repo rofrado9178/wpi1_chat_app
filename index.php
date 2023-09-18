@@ -51,7 +51,7 @@
             //Boolean switch type variable
             $_SESSION["logged_in"] = true;
 
-            print "Hi there, ".$_SESSION["username"];
+            // print "Hi there, ".$_SESSION["username"];
         }
     }
 
@@ -68,41 +68,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Simple Login</title>
+    <title>Simple Chat Apps</title>
+    <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
 
 
     <?php if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true) : ?>
-    
-        <h1>Welcome <?php print $_SESSION["username"]; ?></h1>
-
-        <p id="messages">L O A D I N G</p>
-
-       <form  id="msg-box">
-        <input type="text"  placeholder="Type your message" name="message">
-        <input type="submit" value="Send">
-       </form>
-
-        <a href="logout.php">Log me out</a>
+        <header>
+            <div class="container">
+                <div class="flex-header">
+                    <div class="name">
+                        <h1>WPI1 CHAT</h1>
+                        <img src="assets/smile.png" alt="" class="smile">
+                    </div>
+                    <a href="logout.php">Log out</a>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="container">
+                <div class="flex-user">
+                    <div class="username">
+                        <img src="assets/emoji-avatar1.svg" alt="">
+                        <h1><?php print $_SESSION["username"]; ?></h1>
+                    </div>
+                    <div class="phone-icon">
+                        <img src="assets/🦆 icon _video call_.svg" alt="">
+                        <img src="assets/🦆 icon _phone_.svg" alt="">
+                    </div>
+                </div>
+                <article class="chatbox">
+                    <p id="messages">L O A D I N G</p>
+                </article>
+            </div>
+        </section>
+        <section class="message-form">
+            <div class="container">
+                <form id="msg-box">
+                    <input type="text"  placeholder="Type your message" name="message" class="type-msg">
+                    <input type="submit" value=" " class="send-btn">
+                </form>
+            </div>
+        </section>
     
     <?php elseif($_SERVER['REQUEST_METHOD'] == "POST") : ?>
-
-        <h2>oops, that didn't work... </h2>
-        <a href="index.php">Try again.</a>
+    <section>
+        <div class="container">
+            <h2>oops, that didn't work... </h2>
+            <a href="index.php">Try again.</a>
+        </div>
+    </section>
         
     <?php else : ?>
 
-        <h1>Please log in first</h1>
-        <form action="index.php" method="post">
-            <input type="text" name="username" placeholder="User name please" pattern=".{3,}" required>
-            <input type="password" name="password" placeholder="Password please" pattern=".{3,}" required>
-            <input type="submit" value="Log me in!">
-        </form>
-    
+    <section>
+        <div class="container">
+            <article class="chatbox">
+                <h1>Please log in first</h1>
+                <form action="index.php" method="post" class="login-form">
+                    <input type="text" name="username" placeholder="User name please" pattern=".{3,}" required>
+                    <input type="password" name="password" placeholder="Password please" pattern=".{3,}" required>
+                    <input type="submit" value="Log me in!">
+                </form> 
+            </article>
+        </div>
+    </section>
     <?php endif; ?>
 
-    
-<script src="JS/main.js"></script>
+<script>window.myUserId = <?php echo($_SESSION["id"]);?> </script>
+<script src="JS/main.js" defer></script>
 </body>
 </html>

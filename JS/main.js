@@ -6,7 +6,7 @@ let lastMsgId = 0;
 async function loadMessage() {
   const response = await fetch("./views/chatBox.php?loadAll");
   const data = await response.json();
-  console.log(data);
+  // console.log(data);
 
   // messageContent = data;
 
@@ -55,10 +55,16 @@ async function refreshChat() {
 
   const data = await response.json();
   console.log(data);
-
-  data.map((msg) => {
-    myMessages.innerHTML += `<span class="msg" data-id="${msg.id}">${msg.message} <br> <i>${msg.username}</i></span><br>`;
-  });
+  if(data.length !== 0){
+    data.map((msg) => {
+      myMessages.innerHTML += `<span class="msg" data-id="${msg.id}">
+      ${msg.message} <br/> <i>${msg.username}</i></span><br/>`;
+    });
 
   lastMsgId = data[data.length - 1].id;
+  }
+  
+
 }
+
+setInterval(refreshChat, 5000);
